@@ -1,11 +1,12 @@
 package com.boteroni;
 
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+        import net.dv8tion.jda.core.JDA;
+        import net.dv8tion.jda.core.entities.Message;
+        import net.dv8tion.jda.core.entities.MessageChannel;
+        import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+        import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class Messenger extends ListenerAdapter {
+public class Commands extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -19,5 +20,6 @@ public class Messenger extends ListenerAdapter {
             MessageChannel channel = event.getChannel();
             channel.sendMessage("Pong!").queue(); // Important to call .queue() on the RestAction returned by sendMessage(...)
         }
-    }
+
+
 }

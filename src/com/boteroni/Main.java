@@ -22,6 +22,7 @@ public class Main {
         } catch (RateLimitedException e) {
             e.printStackTrace();
         }
-        discord.addEventListener(new Messenger());
+        discord.addEventListener(new Commands());
+        discord.addEventListener(new Sorter());
     }
 }
