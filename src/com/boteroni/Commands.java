@@ -16,10 +16,11 @@ public class Commands extends ListenerAdapter {
         String content = message.getRawContent();
         // getRawContent() is an atomic getter
         // getContent() is a lazy getter which modifies the content for e.g. console view (strip discord formatting)
-        if (content.equals("!ping")){
+        if (content.equals("!ping")) {
             MessageChannel channel = event.getChannel();
             channel.sendMessage("Pong!").queue(); // Important to call .queue() on the RestAction returned by sendMessage(...)
         }
 
 
+    }
 }
