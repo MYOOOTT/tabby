@@ -12,9 +12,7 @@ public class Main {
         JDA discord = null;
 
         try {
-            discord = new JDABuilder(AccountType.BOT)
-                    .setToken(Constants.BOT_TOKEN)
-                    .buildBlocking();
+            discord = new JDABuilder(AccountType.BOT).setToken(Constants.BOT_TOKEN).buildBlocking();
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

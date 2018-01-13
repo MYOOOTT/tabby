@@ -15,16 +15,17 @@ public class Sorter extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        User person = event.getAuthor();
-        if (person.isBot()) return; // make sure not to respond to itself
-
-        //gets the message from discord & extracts the String
         Message message = event.getMessage();
+        User person = event.getAuthor();
         String content = message.getRawContent().toLowerCase().replaceAll("\\s+","");
+        if (person.isBot() && content.equals("noswearingonmychristianserver")) {
+            message.delete().queue();
+        }
+
         if (hasExplicit(content)) {
             MessageChannel channel = event.getChannel();
             message.delete().queue();
-            channel.sendMessage("Hey man, no cussing.").queue(m -> m.delete().queueAfter(5, SECONDS));
+            channel.sendMessage("No SwEaRiNg On My ChRiStIaN sErVeR").queue();
         }
 
 
